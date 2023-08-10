@@ -44,38 +44,40 @@ Elevate your web development experience with our Fastify MVC Template. Crafted f
 - **Community**: Join a growing community of passionate developers.
 - **Support**: Regular updates and prompt support.
 
-## Compatibility with Older Versions of MySQL
 
-If you're working with an older version of MySQL that doesn't support the `mysql2` driver, you'll need to make some adjustments to ensure compatibility.
+## 🛠 Compatibility with Older MySQL Versions
 
-### Steps:
+If your database setup involves an older version of MySQL that isn't compatible with the `mysql2` driver, don't fret! Here's a guide to ensure everything runs smoothly:
 
-1. **Downgrade Sequelize**: The newer versions of Sequelize primarily support the `mysql2` driver. To use the `mysql` driver, you'll need to downgrade Sequelize to version 3.
+### Step-by-Step Guide:
 
-   Install Sequelize v3 and the `mysql` driver with the following command:
+1. **Downgrade Sequelize**:
+   - Newer Sequelize versions lean heavily on the `mysql2` driver. For compatibility with the `mysql` driver, you'll need to roll back to Sequelize version 3.
+   - Command to run:
+     ```bash
+     npm install sequelize@3 mysql --save
+     ```
 
-   ```bash
-   npm install sequelize@3 mysql --save
-   ```
-
-2. **Update Configuration**: Ensure that your Sequelize configuration specifies `mysql` as the dialect.
-
-   ```json
-   {
-     "development": {
-       "dialect": "mysql",
-       ...
+2. **Tweak Your Configuration**:
+   - Make sure your Sequelize configuration is set to use the `mysql` dialect.
+     ```json
+     {
+       "development": {
+         "dialect": "mysql",
+         ...
+       }
      }
-   }
-   ```
+     ```
 
-3. **Documentation**: If you decide to use Sequelize v3, it's essential to refer to the [Sequelize v3 documentation](https://sequelize.org/v3/). This version has different APIs and features compared to the newer versions.
+3. **Documentation Dive**:
+   - With Sequelize v3 in your toolkit, it's crucial to stick to the [Sequelize v3 documentation](https://sequelize.org/v3/). Remember, this version has its own set of APIs and features.
 
-4. **Locking Dependencies**: It's a good practice to use a `package-lock.json` or `yarn.lock` file in your project. This ensures that the versions of your dependencies remain consistent across all environments.
+4. **Lock It In**:
+   - Consistency is key. Ensure you're using a `package-lock.json` or `yarn.lock` to keep dependency versions consistent across all setups.
 
-### Note:
+### 🚀 Pro Tip:
 
-Using an older version of Sequelize might mean missing out on newer features and fixes. Always weigh the pros and cons before deciding on a version.
+While using an older Sequelize version might seem like stepping back, it's essential to weigh the benefits against the drawbacks. Newer features and fixes might be tempting, but always prioritize what's best for your project setup.
 
 
 ## 🤝 Contribute
