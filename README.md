@@ -44,6 +44,40 @@ Elevate your web development experience with our Fastify MVC Template. Crafted f
 - **Community**: Join a growing community of passionate developers.
 - **Support**: Regular updates and prompt support.
 
+## Compatibility with Older Versions of MySQL
+
+If you're working with an older version of MySQL that doesn't support the `mysql2` driver, you'll need to make some adjustments to ensure compatibility.
+
+### Steps:
+
+1. **Downgrade Sequelize**: The newer versions of Sequelize primarily support the `mysql2` driver. To use the `mysql` driver, you'll need to downgrade Sequelize to version 3.
+
+   Install Sequelize v3 and the `mysql` driver with the following command:
+
+   ```bash
+   npm install sequelize@3 mysql --save
+   ```
+
+2. **Update Configuration**: Ensure that your Sequelize configuration specifies `mysql` as the dialect.
+
+   ```json
+   {
+     "development": {
+       "dialect": "mysql",
+       ...
+     }
+   }
+   ```
+
+3. **Documentation**: If you decide to use Sequelize v3, it's essential to refer to the [Sequelize v3 documentation](https://sequelize.org/v3/). This version has different APIs and features compared to the newer versions.
+
+4. **Locking Dependencies**: It's a good practice to use a `package-lock.json` or `yarn.lock` file in your project. This ensures that the versions of your dependencies remain consistent across all environments.
+
+### Note:
+
+Using an older version of Sequelize might mean missing out on newer features and fixes. Always weigh the pros and cons before deciding on a version.
+
+
 ## 🤝 Contribute
 
 Your contributions are always welcome! Feel free to improve the template and send us a pull request.
